@@ -14,12 +14,28 @@ const setAllMenu = async () =>{
     // .then(data => console.log(data))
 
     const data = await loadAllProducts();
+    const menu =document.getElementById('all-menu')
 
+    const uniqueArray =[]
+for (const product of data ){
+
+
+
+ if(uniqueArray.indexOf(product.category) == -1){
+    uniqueArray.push(product.category);
+    const li = document.createElement('li');
+
+    li.innerHTML =`
     
+    <a>${product.category}</a>
+   
+    `
+    menu.appendChild(li)
+ }
 
-
+}
+ 
 }
 
 setAllMenu() 
 
-setAllMenu();
